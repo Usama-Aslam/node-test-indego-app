@@ -9,6 +9,7 @@ const swaggerUi = require("swagger-ui-express");
 
 //local files
 const api = require("./api/index");
+const { downloadData } = require("./job/downloadData");
 
 require("dotenv").config({ path: __dirname + "/./../.env" });
 
@@ -54,6 +55,9 @@ app.use(
 
 // api
 app.use("/api/v1", api);
+
+//cronJob
+downloadData.start();
 
 //swagger setup
 const specs = swaggerJsdoc(swaggerSetup);
