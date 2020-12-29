@@ -24,7 +24,8 @@ class Station {
       const stationData = data[0].value;
       const weatherData = data[1].value;
 
-      if (!stationData.length > 0) throw new Error("data not found");
+      if (!stationData.length > 0 || !weatherData)
+        throw new Error("data not found");
 
       //response
 
@@ -59,7 +60,7 @@ class Station {
       const stationData = data[0].value;
       const weatherData = data[1].value;
 
-      if (!stationData) throw new Error("data not found");
+      if (!stationData || !weatherData) throw new Error("data not found");
 
       res.status(200).send({
         at: stationData.createdAt,
