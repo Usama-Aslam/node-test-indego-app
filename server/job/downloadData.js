@@ -8,6 +8,8 @@ const downloadData = new CronJob(
   "* * 1 * * *",
   function () {
     console.log("======>Job Started<=====");
+
+    //fetching data and storing in database
     axios
       .get(indegoAPI)
       .then(({ data }) => {
