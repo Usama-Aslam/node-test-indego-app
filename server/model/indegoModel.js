@@ -48,6 +48,12 @@ const indegoDataSchema = new mongoose.Schema({
     longitude: { type: Number },
   },
   type: { type: String },
+
+  expireAt: {
+    type: Date,
+    default: Date.now,
+    index: { expires: "1m" },
+  },
 });
 
 const IndegoDataModel = mongoose.model("indegoData", indegoDataSchema);
