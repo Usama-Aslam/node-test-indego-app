@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
-
+const url = process.env.mongoURL || "mongodb://localhost:27017/task-test";
 mongoose
-  .connect("mongodb://localhost:27017/task-test", {
+  .connect(url, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
