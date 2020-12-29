@@ -1,10 +1,9 @@
 const auth = (req, res, next) => {
   try {
     const validToken = process.env.token;
-    let token = req.header("Authorization");
+    let token = req.header("x-auth-token");
 
     if (!token) throw new Error("token not found");
-    token = token.replace("Bearer ", "");
 
     if (token != validToken) throw new Error("invalid token");
     next();

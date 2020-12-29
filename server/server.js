@@ -57,9 +57,9 @@ app.use("/api/v1", api);
 
 //swagger setup
 const specs = swaggerJsdoc(swaggerSetup);
-app.use("/api/v1/docs", swaggerUi.serve);
 app.use(
   "/api/v1/docs",
+  swaggerUi.serve,
   swaggerUi.setup(specs, {
     explorer: true,
   })
