@@ -5,7 +5,7 @@ const { indegoAPI } = require("../config/constant");
 const { IndegoDataModel } = require("../model/indegoModel");
 
 const downloadData = new CronJob(
-  "* * 1 * * *",
+  "* 59 * * * *",
   function () {
     console.log("======>Job Started<=====");
 
