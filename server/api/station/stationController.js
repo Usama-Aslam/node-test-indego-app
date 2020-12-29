@@ -3,12 +3,13 @@ const axios = require("axios");
 
 const { IndegoDataModel } = require("../../model/indegoModel");
 const { openWeatherAPI } = require("../../config/constant");
+const { openWeatherAPIKEY } = require("../../config/key");
 
 class Station {
   async getStationData(req, res) {
     try {
       const { at } = req.query;
-      const url = `${openWeatherAPI}?q=Philadelphia&appid=${process.env.openWeatherAPI}`;
+      const url = `${openWeatherAPI}?q=Philadelphia&appid=${openWeatherAPIKEY}`;
 
       //fetching weatherData and stationData
       const getWeather = axios.get(url);
@@ -42,7 +43,7 @@ class Station {
       const { id } = req.params;
       const { at } = req.query;
 
-      const url = `${openWeatherAPI}?q=Philadelphia&appid=${process.env.openWeatherAPI}`;
+      const url = `${openWeatherAPI}?q=Philadelphia&appid=${openWeatherAPIKEY}`;
 
       //fetching weatherData and stationData
       const getWeather = axios.get(url);

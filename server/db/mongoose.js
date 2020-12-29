@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const { mongoURL } = require("../config/key");
 
 mongoose.Promise = global.Promise;
-const url = process.env.mongoURL || "mongodb://localhost:27017/task-test";
+
 mongoose
-  .connect(url, {
+  .connect(mongoURL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
