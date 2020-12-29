@@ -15,8 +15,8 @@ class Station {
       const getWeather = axios.get(url);
 
       const getStation = IndegoDataModel.find({
-        createdAt: { $gte: at, $lte: dayjs().add(1, "m") },
-      }).sort({ createdAt: 1 });
+        createdAt: { $gte: at, $lt: dayjs().add(1, "m") },
+      });
 
       //parallel execution of request
       const data = await Promise.allSettled([getStation, getWeather]);
