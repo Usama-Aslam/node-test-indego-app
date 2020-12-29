@@ -9,8 +9,10 @@ const swaggerUi = require("swagger-ui-express");
 
 //local files
 const api = require("./api/index");
-const { auth } = require("./middleware/authentication");
+
 require("dotenv").config({ path: __dirname + "/./../.env" });
+
+const swaggerSetup = require("./swaggerSetup");
 
 //app initialization
 const app = express();
@@ -51,7 +53,7 @@ app.use(
 );
 
 // api
-app.use("/api/v1", auth, api);
+app.use("/api/v1", api);
 
 //swagger setup
 const specs = swaggerJsdoc(swaggerSetup);
