@@ -12,10 +12,11 @@ class Station {
       const url = `${openWeatherAPI}?q=Philadelphia&appid=${openWeatherAPIKEY}`;
 
       //fetching weatherData and stationData
+      //@param {string} api of openWeather
       const getWeather = axios.get(url);
 
       const getStation = IndegoDataModel.find({
-        createdAt: { $gte: at, $lt: dayjs().add(1, "m") },
+        createdAt: { $gte: at, $lt: dayjs(at).add(1, "M") },
       });
 
       //parallel execution of request
@@ -47,6 +48,7 @@ class Station {
       const url = `${openWeatherAPI}?q=Philadelphia&appid=${openWeatherAPIKEY}`;
 
       //fetching weatherData and stationData
+      //@param {string}- api of openWeather
       const getWeather = axios.get(url);
 
       const getStation = IndegoDataModel.findOne({
