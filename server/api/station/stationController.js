@@ -12,9 +12,10 @@ class Station {
       const url = `${openWeatherAPI}?q=Philadelphia&appid=${openWeatherAPIKEY}`;
 
       //fetching weatherData and stationData
-      //@param {string} api of openWeather
+      //@param {string} - api of openWeather
       const getWeather = axios.get(url);
 
+      //@param {Date} - passing Date in dayJS package
       const getStation = IndegoDataModel.find({
         createdAt: { $gte: at, $lt: dayjs(at).add(1, "M") },
       });
